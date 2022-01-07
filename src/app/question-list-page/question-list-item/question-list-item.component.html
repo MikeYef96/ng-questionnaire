@@ -1,0 +1,50 @@
+<div class="question">
+  <h3> {{ question.title }} </h3>
+
+  <form class="answer-form">
+    <div class="answer-form-option" [ngSwitch]="question.type">
+      <ng-container *ngSwitchCase="'Single'">
+        <mat-radio-group class="radios" (change)="onSelectSingleAnswer($event)" [disabled]="isAnswered">
+          <mat-radio-button [value]="answer" *ngFor="let answer of question.answers" [checked]="isAnswered && answer === question.answer[0]">
+            {{ answer }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'Multiple'">
+        <div *ngFor="let answer of question.answers; let i = index">
+          <mat-checkbox class="checkboxes" (change)="onSelectAnswers($event, answer)" [disabled]="isAnswered" [checked]="isSelected(answer)">
+            {{ answer }}
+          </mat-checkbox>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'Text'">
+         <textarea
+           #textAreaElement
+           [disabled]="isAnswered"
+           [value]="question.answer[0] || ''"
+           (input)="onSelectSingleAnswer({ value: textAreaElement.value })"
+           class="textarea-answer"
+           placeholder="Your answer"
+           maxlength="255"
+         ></textarea>
+      </ng-container>
+    </div>
+
+    <div class="actions">
+      <ng-container *ngIf="!isAnswered">
+        <div>
+          <button mat-raised-button color="primary" [disabled]="!question.answer.length" (click)="createAnswer()">
+            Create Answer
+          </button>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="isAnswered">
+        <button mat-raised-button color="warn" (click)="removeAnswer()">
+          Roll Back Answer
+        </button>
+      </ng-container>
+    </div>
+  </form>
+</div>

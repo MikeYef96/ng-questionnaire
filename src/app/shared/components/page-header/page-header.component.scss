@@ -1,0 +1,39 @@
+.header {
+  padding: 20px 40px;
+  margin-bottom: 30px;
+  background: #55b0f6;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h2,
+  p {
+    margin: 0;
+  }
+
+  &-right_side {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-title {
+    color: white;
+  }
+
+  &-link {
+    margin-left: 40px;
+    text-decoration: none;
+    color: white;
+  }
+
+  .create {
+    display: flex;
+    align-items: center;
+    font-size: large;
+    font-weight: 500;
+
+    color: white;
+    cursor: pointer;
+  }
+}

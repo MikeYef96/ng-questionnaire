@@ -1,0 +1,15 @@
+<div class="question">
+  <h3> {{ question.title }} </h3>
+  <div class="details">
+    <p> <span>Type:</span> {{ question.type }} </p>
+    <p> <span>Creation date:</span> {{ question.creationDate | date }} </p>
+  </div>
+  <div class="actions">
+    <button mat-raised-button color="primary" (click)="editQuestion()">
+      Edit
+    </button>
+    <button mat-raised-button color="warn" (click)="deleteQuestion()">
+      Delete
+    </button>
+  </div>
+</div>

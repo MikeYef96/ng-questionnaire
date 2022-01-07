@@ -1,0 +1,8 @@
+<div class="edit-questions">
+  <app-page-header [title]="'Edit question'"></app-page-header>
+
+  <div class="edit-questions-content" *ngIf="question">
+    <app-create-question [mode]="'edit'" [question]="question"></app-create-question>
+  </div>
+
+</div>

@@ -1,0 +1,23 @@
+<div class="header">
+  <div class="header-right_side">
+    <h2 class="header-title">{{ title }}</h2>
+    <a class="header-link" [routerLink]="link">
+      <h2>{{ linkTitle }}</h2>
+    </a>
+  </div>
+
+  <ng-container *ngIf="isManagement">
+    <div class="create" routerLink="/create">
+      <p class="create-text">Create question</p>
+      <button mat-icon-button>
+        <mat-icon>add_box</mat-icon>
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!isManagement">
+    <button mat-icon-button routerLink="/management">
+      <mat-icon>home</mat-icon>
+    </button>
+  </ng-container>
+</div>

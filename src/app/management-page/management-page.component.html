@@ -1,0 +1,14 @@
+<div class="management">
+  <app-page-header
+    [title]="'QuestionType management'"
+    [link]="'/list'"
+    [linkTitle]="'Lists of Questions Page'"
+    [isManagement]="true"
+  ></app-page-header>
+
+  <div class="management-content">
+    <ng-container *ngFor="let item of questions; let i = index">
+      <app-question-item (delete)="delete(i)" [question]="item"></app-question-item>
+    </ng-container>
+  </div>
+</div>

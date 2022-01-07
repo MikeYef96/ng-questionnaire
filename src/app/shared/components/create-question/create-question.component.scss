@@ -1,0 +1,15 @@
+.create-questions {
+  max-width: 300px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .radios {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+}

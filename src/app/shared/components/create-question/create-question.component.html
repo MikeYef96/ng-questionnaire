@@ -1,0 +1,49 @@
+<form class="create-questions" [formGroup]="form">
+
+  <mat-form-field class="input" appearance="outline">
+    <mat-label>QuestionType title</mat-label>
+    <input matInput formControlName="title" placeholder="Enter your question " autocomplete="off"/>
+  </mat-form-field>
+
+  <mat-radio-group class="radios" formControlName="type">
+    <mat-radio-button [value]="type" *ngFor="let type of questionTypes">{{ type }}</mat-radio-button>
+  </mat-radio-group>
+
+  <ng-container *ngIf="hasAnswers">
+    <button
+      mat-raised-button
+      (click)="addAnswerOption()"
+      class="button"
+      color="primary">
+      Add Answer Option
+    </button>
+
+    <div [ngSwitch]="form.controls.type.value">
+      <ng-container *ngSwitchCase="types.Single">
+        <ng-container formArrayName="answers" *ngFor="let answer of answers.controls; let i = index">
+          <mat-form-field class="input" appearance="outline">
+            <input matInput [formControl]="answer" placeholder="Enter your answer option" autocomplete="off" required/>
+          </mat-form-field>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="types.Multiple">
+        <ng-container formArrayName="answers" *ngFor="let answer of answers.controls; let i = index">
+          <mat-form-field class="input" appearance="outline">
+            <input matInput [formControl]="answer" placeholder="Enter your answer option" autocomplete="off" required/>
+          </mat-form-field>
+        </ng-container>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <button
+    mat-raised-button
+    [disabled]="form.invalid"
+    (click)="mode === 'create' ? createQuestion() : updateQuestion()"
+    class="button"
+    color="primary"
+  >
+   {{ mode === 'create' ? 'Create' : 'Update' }}
+  </button>
+
+</form>

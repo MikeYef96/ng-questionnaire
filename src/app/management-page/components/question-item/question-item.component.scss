@@ -1,0 +1,19 @@
+.question {
+  width: 900px;
+  padding: 20px;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+
+  .details {
+    & span {
+      font-weight: 700;
+    }
+  }
+
+  .actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+
+}

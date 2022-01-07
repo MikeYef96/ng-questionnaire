@@ -1,0 +1,26 @@
+.list {
+
+  &-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+   .left-side {
+     width: calc(50vw - 40px);
+     margin: 0 20px;
+     display: flex;
+     align-items: flex-start;
+     flex-direction: column;
+     gap: 25px;
+   }
+
+    .right-side {
+      width: calc(50vw - 40px);
+      margin: 0 20px;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 25px;
+    }
+  }
+}

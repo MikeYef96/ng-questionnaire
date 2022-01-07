@@ -1,0 +1,27 @@
+.edit-questions {
+  width: 100%;
+
+  &-content {
+    width: 500px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .radios {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 10px;
+    gap: 10px;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+}
