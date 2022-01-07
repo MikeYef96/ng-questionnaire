@@ -12,7 +12,9 @@ export class ManagementPageComponent {
 
   questions: IQuestion[] = this.lsService.getItem('questions');
 
-  constructor(private lsService: LocalStorageService) {}
+  constructor(private lsService: LocalStorageService) {
+    this.questions.sort((a, b) => new Date(b.creationDate).getTime() - new Date(a.creationDate).getTime());
+  }
 
   delete(index: number): void {
     this.questions.splice(index, 1);

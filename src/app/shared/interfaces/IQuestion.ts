@@ -5,7 +5,7 @@ export interface IQuestion {
   title: string,
   creationDate: string,
   type: QuestionType,
-  answeredDate?: string,
+  answeredDate?: Date,
   answers?: string[],
   answer?: string[],
 }

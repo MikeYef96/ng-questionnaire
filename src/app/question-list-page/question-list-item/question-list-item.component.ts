@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { IQuestion } from '../../shared/interfaces/IQuestion';
-import { MatRadioChange } from "@angular/material/radio";
 import { MatCheckboxChange } from "@angular/material/checkbox";
 
 @Component({
@@ -12,7 +11,7 @@ import { MatCheckboxChange } from "@angular/material/checkbox";
 export class QuestionListItemComponent {
   @Input() isAnswered = false;
   @Input() set question(question: IQuestion) {
-    this._question = { ...question, answer: [...question.answer] }
+    this._question = { ...question, answeredDate: new Date(), answer: [...question.answer] }
   }
 
   get question(): IQuestion {
@@ -41,6 +40,7 @@ export class QuestionListItemComponent {
 
   removeAnswer(): void {
     this.question.answer = [];
+    this.question.answeredDate = null;
     this.update.emit(this.question);
   }
 }
