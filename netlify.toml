@@ -1,5 +1,6 @@
 [build]
-  publish = "dist"
+  command = "npm run build"
+  publish = "dist/question"
 [[redirects]]
     from="/*"
     to = "/index.html"
